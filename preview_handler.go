@@ -28,7 +28,9 @@ func PreviewHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		res := &APIResponse{}
+		res := &APIResponse{
+			Icons: make([]string, 0),
+		}
 		c := colly.NewCollector()
 
 		c.OnHTML("meta[name='description']", func(e *colly.HTMLElement) {
